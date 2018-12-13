@@ -1,0 +1,33 @@
+type Query {
+    authors: [Author]!
+}
+
+type Mutation {
+    createAuthor(authorDto: AuthorDto): Author!
+}
+
+type Author {
+    id: Int!
+    name: String!
+    books: [Book]
+    lastModifiedBy: User
+}
+
+type Book {
+    id: Int!
+    name: String
+}
+
+type User {
+    id: Int!
+    name: String!
+}
+
+input AuthorDto {
+    name: String!
+    books: [BookDto]
+}
+
+input BookDto {
+    name: String!
+}
